@@ -1,0 +1,33 @@
+.header {
+    background-image: url(../../images/fastfood/burger.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    height: 520px;
+    width: auto;
+    display: flex;
+}
+
+@media screen and (max-width: 500px) {
+    .header {
+        height: 180px;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .header {
+        height: 250px;
+    }
+}
+
+@media screen and (max-width: 824px) {
+    .header {
+        max-height: 300px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .header {
+        max-height: 400px;
+    }
+}
