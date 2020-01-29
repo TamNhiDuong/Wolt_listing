@@ -15,12 +15,10 @@
     display: flex;
     justify-content: center;
     -webkit-justify-content: center;
-    max-width: 800px;
-    padding-left: 20px;
+    max-width: 350px;
 }
 
 .card_info {
-    z-index: 2;
     background-color: #fff;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
@@ -29,11 +27,7 @@
 
 .item {
     transition: var(--mainTransition);
-    justify-items: center;
-    align-items: center;
     font-family: 'Roboto Slab', serif;
-    margin-right: 25px;
-    transition: all .4s cubic-bezier(0.175, 0.885, 0, 1);
     background-color: #fff;
     width: 80.3%;
     position: relative;
@@ -67,7 +61,7 @@
     padding: 5px 5px 10px 0px;
     position: absolute;
     right: 5px;
-    bottom: 90px;
+    bottom: 100px;
     text-align: right;
     font-family: courier;
     border-radius: 2px;
@@ -99,12 +93,6 @@
     border-bottom-right-radius: 50%;
     border-top-right-radius: 50%;
     z-index: -1;
-}
-
-.delivery {
-    font-size: 12px;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 500;
 }
 
 .price_num {
@@ -186,3 +174,17 @@
     content: '';
     position: absolute;
 }
+
+@media screen and (max-width: 1126px) {
+    .item {
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .item {
+        width: 280px;
+        margin-right: 25px;
+    }
+}
+

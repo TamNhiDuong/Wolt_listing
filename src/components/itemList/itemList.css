@@ -1,16 +1,14 @@
-.itemList {
-    align-items: center;
-    justify-items: center;
+:root {
+    --primaryColor: #1fa2df;
 }
 
 html {
     background-color: rgb(229, 238, 240);
 }
 
-.form {
-    display: inline-block;
-    color: white;
-    position: center;
+.itemList {
+    align-items: center;
+    justify-items: center;
 }
 
 .itemList-center {
@@ -22,19 +20,32 @@ html {
     grid-column-gap: 40px;
 }
 
+.wrapper { 
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 0px;
+}
+
+.form {
+    display: inline-block; 
+    color: white;
+    position: center;
+}
+
 .btn {
-    border-color: #1fa2df;
+    border-color: var(--primaryColor);
     background: none;
     border-radius: 5px;
-    color: #1fa2df;
+    color: var(--primaryColor);
     height: 1.7rem;
     font-size: 15px;
     outline: none;
     margin-left: 0.5rem;
+    margin-bottom: 20px;
 }
 
 .dropdown {
-    background-color: #1fa2df;
+    background-color: var(--primaryColor);
     border: none;
     cursor: pointer;
     color: white;
@@ -44,14 +55,8 @@ html {
 }
 
 .btn:hover {
-    background-color: #1fa2df;
+    background-color: var(--primaryColor);
     color: white;
-}
-
-.wrapper {
-    text-align: center;
-    padding-bottom: 20px;
-    padding-top: 0px;
 }
 
 @media screen and (min-width: 776px) {
@@ -67,3 +72,4 @@ html {
         max-width: 1170px;
     }
 }
+

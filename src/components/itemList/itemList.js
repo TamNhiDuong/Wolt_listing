@@ -8,7 +8,7 @@ import './itemList.css';
 
 export default function ItemList(props) {
 
-    let { value, handleOptions, data, loading, items, sortedItems, doSort, onSort } = props;
+    let { value, handleOptions, data, isReady, items, sortedItems, doSort, onSort } = props;
 
     items = items.map(item => {
         return <CardItem key={item.name} item={item} />
@@ -16,7 +16,8 @@ export default function ItemList(props) {
     sortedItems = sortedItems.map(item => {
         return <CardItem key={item.name} item={item} />
     })
-    
+    console.log('isReady' + isReady)
+
     return (
         <section className='itemList'>
             <SectionTitle title="Explore restaurants in Helsinki" />
@@ -29,12 +30,12 @@ export default function ItemList(props) {
                             </option>
                         ))}
                     </select>
-                    <button type='submit'  className='btn'>Sort</button>
+                    <button type='submit' className='btn'>Sort</button>
                 </form>
                 <div className='itemList-center'>
-                    {loading ? <Loading /> : (doSort ? sortedItems : items)}
+                    {isReady ? (doSort ? sortedItems : items) : <Loading />}
                 </div>
             </div>
         </section>
     )
-}
+} 

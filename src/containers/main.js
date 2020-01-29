@@ -7,7 +7,7 @@ import NavBar from '../components/navBar/navBar';
 import SearchList from '../components/searchList/searchList';
 
 export default function Main() {
-    const [loading, setLoading] = useState(false);
+    const [isReady, setReady] = React.useState(false);
     const [items, setItems] = useState([]);
     const [sortedItems, setSortedItems] = useState([]);
     const [option, setOption] = useState('Choose sort option');
@@ -16,22 +16,21 @@ export default function Main() {
     const [filteredItems, setFilteredItems] = useState([]);
     const [doSearch, setDoSearch] = useState(false);
 
-    
+
     const selectData = ['Sort A-Z', 'Sort Z-A', 'Choose sort option']
 
     useEffect(() => {
         fetchData();
     }, [])
-  
+
     const fetchData = () => {
-        setLoading(true);
         fetch('https://raw.githubusercontent.com/woltapp/summer2020/master/restaurants.json')
             .then(response => response.json())
             .then(data => {
                 setItems(data.restaurants);
-                setLoading(false);
+                setReady(true)
             })
-            .catch(err => console.log(err));
+            .catch(err => console.error(err))
     };
 
     const handleInput = (event) => {
@@ -51,7 +50,7 @@ export default function Main() {
             setSortedItems(sortedData);
             setDoSort(true);
         }
-        else if (option === 'Sort Z-A'){
+        else if (option === 'Sort Z-A') {
             const sortedData = cloneData.sort(function (a, b) {
                 var textA = a.name.toUpperCase();
                 var textB = b.name.toUpperCase();
@@ -66,7 +65,7 @@ export default function Main() {
     }
 
     const showFilteredItems = (event) => {
-        if(input) {
+        if (input) {
             setFilteredItems(filteredList);
             setDoSearch(true);
             setInput('');
@@ -92,20 +91,19 @@ export default function Main() {
                     doSearch={doSearch} />
             </Header>
             <NavBar />
-            {doSearch ? 
+            {doSearch ?
             <SearchList
-                loading={loading}
                 filteredItems={filteredItems} /> :
             <ItemList
-                loading={loading}
+                isReady={isReady}
                 items={items}
                 handleOptions={e => setOption(e.target.value)}
                 value={option}
                 data={selectData}
                 sortedItems={sortedItems}
                 doSort={doSort}
-                onSort={onSort}/>
-                }
+                onSort={onSort} />
+            }
         </div>
     );
 }

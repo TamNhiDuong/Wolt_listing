@@ -1,9 +1,9 @@
-.itemList {
+.searchList {
     align-items: center;
     justify-items: center;
 }
 
-.itemList-center {
+.searchList-center {
     width: 65vw;
     margin: 0 auto;
     display: grid;
@@ -12,44 +12,21 @@
     grid-column-gap: 40px;
 }
 
-.btn {
-    position: center;
-    text-align: center;
-    border-color: #1fa2df;
-    background: none;
-    border-radius: 5px;
-    color: #1fa2df;
-    width: inherit;
-    height: 1.7rem;
-    align-content: center;
-    justify-content: space-around;
-    font-size: 15px;
-    padding-left: 10px;
-    padding-right: 10px;
-    outline: none;
-    margin-bottom: 2rem;
-}
-
-.btn:hover {
-    background-color: #1fa2df;
-    color: white;
-}
-
-.wrapper {
+.wrapper { 
     text-align: center;
     padding-bottom: 20px;
     padding-top: 0px;
 }
 
 @media screen and (min-width: 776px) {
-    .itemList-center {
+    .searchList-center {
         width: 90vw;
         grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
     }
 }
 
 @media screen and (min-width: 992px) {
-    .itemList-center {
+    .searchList-center {
         width: 95vw;
         max-width: 1170px;
     }
