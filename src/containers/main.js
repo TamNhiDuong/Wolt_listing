@@ -26,9 +26,12 @@ export default function Main() {
     const fetchData = () => {
         setLoading(true);
         fetch('https://raw.githubusercontent.com/woltapp/summer2020/master/restaurants.json')
-        .then(response => response.json())
-        .then(data => setItems(data.restaurants), setLoading(false))
-        .catch(err => console.log(err));
+            .then(response => response.json())
+            .then(data => {
+                setItems(data.restaurants);
+                setLoading(false);
+            })
+            .catch(err => console.log(err));
     };
 
     const handleInput = (event) => {
